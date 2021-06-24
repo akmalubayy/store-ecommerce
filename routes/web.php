@@ -33,6 +33,7 @@ Route::prefix('admin')
    Route::resource('user', 'UserController');
    Route::resource('product', 'ProductController');
    Route::resource('gallery', 'ProductGalleryController');
+   Route::resource('transaction', 'TransactionController');
 });
 
 
