@@ -1,0 +1,26 @@
+.card {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 15px #f1f1f8;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none !important;
+
+  .dashboard-card-title {
+    font-size: 16px;
+    font-weight: 300;
+    color: #c5c5c5;
+  }
+
+  .dashboard-card-subtitle {
+    font-size: 32px;
+    font-weight: 500;
+    color: #0c0d36;
+  }
+
+  .img-transaction {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
