@@ -124,54 +124,33 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-8 mt-3 mb-3">
-                                <h5>Customer Review (3)</h5>
+                                <h5>Customer Review ({{ $product->comment->count() }})</h5>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-lg-8">
                                 <ul class="list-unstyled">
+                                    @forelse ($product->comment as $review )
                                     <li class="media">
                                         <img
-                                            src="/images/Puimekster.jpg"
+                                            src="@if ($review->user->photo_url != NULL)
+                                                {{ Storage::url($review->user->photo_url) }}
+                                            @else
+                                                https://ui-avatars.com/api/?name={{$review->user->name}}
+                                            @endif"
                                             alt="testimonial-img"
                                             class="mr-4 rounded-circle"
                                         />
                                         <div class="media-body">
-                                            <h5 class="mt2 mb-1">Puimekster</h5>
-                                            I thought it was not good for living
-                                            room. I really happy to decided buy
-                                            this product last week now feels
-                                            like homey.
+                                            <h5 class="mt2 mb-1">{{ $review->user->name }}</h5>
+                                            {{ $review->post }}
                                         </div>
                                     </li>
-                                    <li class="media">
-                                        <img
-                                            src="/images/puimekmydoctor.jpg"
-                                            alt="testimonial-img"
-                                            class="mr-4 rounded-circle"
-                                        />
-                                        <div class="media-body">
-                                            <h5 class="mt2 mb-1">Puimekster</h5>
-                                            Color is great with the minimalist
-                                            concept. Even I thought it was made
-                                            by Cactus industry. I do really
-                                            satisfied with this.
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img
-                                            src="/images/puimeksterrr.jpg"
-                                            alt="testimonial-img"
-                                            class="mr-4 rounded-circle"
-                                        />
-                                        <div class="media-body">
-                                            <h5 class="mt2 mb-1">Puimekster</h5>
-                                            When I saw at first, it was really
-                                            awesome to have with. Just let me
-                                            know if there is another upcoming
-                                            product like this.
-                                        </div>
-                                    </li>
+                                    @empty
+                                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                                        Tidak ada Review Di Produk Ini!
+                                    </div>
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>

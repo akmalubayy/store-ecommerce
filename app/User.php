@@ -59,4 +59,5 @@ class User extends Authenticatable
     protected $rules = [
         'email_address' => 'sometimes|required|email|unique:users',
     ];
+
 }

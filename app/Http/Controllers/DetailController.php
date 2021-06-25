@@ -19,6 +19,7 @@ class DetailController extends Controller
         $product = Product::with([
             'galleries',
             'user',
+            'comment'
         ])->where('slug', $id)->firstOrFail();
 
         return view('pages.detail', compact([

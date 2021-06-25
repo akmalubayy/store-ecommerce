@@ -47,6 +47,12 @@
               Products
             </a>
             <a
+              href="{{ route('comment.index') }}"
+              class="list-group-item list-group-item-action {{ (request()->routeIs('comment*')) ? 'active' : '' }}"
+            >
+              Comments
+            </a>
+            <a
               href="{{ route('gallery.index') }}"
               class="list-group-item list-group-item-action {{ (request()->routeIs('gallery*')) ? 'active' : '' }}"
             >

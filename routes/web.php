@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::prefix('admin')
    Route::resource('product', 'ProductController');
    Route::resource('gallery', 'ProductGalleryController');
    Route::resource('transaction', 'TransactionController');
+   Route::resource('transaction', 'TransactionController');
+   Route::resource('comment', 'CommentController');
 });
 
 
@@ -71,6 +74,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard/store/settings', [DashboardSettingController::class,'storeSetting'])->name('dashboard-store-settings');
     Route::get('/dashboard/account/settings', [DashboardSettingController::class, 'accountSetting'])->name('dashboard-account-settings');
     Route::post('/dashboard/account/{redirect}', [DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect');
+
 });
 
 
@@ -80,7 +84,7 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/categories/{id}', [CategoryController::class, 'details'])->name('categories-detail');
 Route::get('/details/{id}', [DetailController::class, 'index'])->name('detail');
 Route::post('/details/{id}', [DetailController::class, 'add'])->name('add-product');
-
+Route::post('/details/{product}/comment', [CommentController::class, 'postComment'])->name('product.comment.store');
 
 
 

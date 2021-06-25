@@ -38,4 +38,9 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'categories_id','id')->withTrashed();
     }
 
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'products_id', 'id');
+    }
+
 }
