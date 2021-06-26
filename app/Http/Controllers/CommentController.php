@@ -16,7 +16,7 @@ class CommentController extends Controller
     {
 
         // dd($request->all());
-        Komentar::create([
+        Comment::create([
             'users_id' => Auth::user()->id,
             'products_id' => $product->id,
             'post' => $request->post,

@@ -123,7 +123,7 @@
                 <section class="store-review">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 col-lg-8 mt-3 mb-3">
+                            <div class="col-12 col-lg-8 mt-5 mb-3">
                                 <h5>Customer Review ({{ $product->comment->count() }})</h5>
                             </div>
                         </div>
@@ -142,8 +142,8 @@
                                             class="mr-4 rounded-circle"
                                         />
                                         <div class="media-body">
-                                            <h5 class="mt2 mb-1">{{ $review->user->name }}</h5>
-                                            {{ $review->post }}
+                                            <h5 class="mt-2 mb-1">{{ $review->user->name }}</h5>
+                                           {!! $review->post !!}
                                         </div>
                                     </li>
                                     @empty
@@ -156,6 +156,22 @@
                         </div>
                     </div>
                 </section>
+                @auth
+                <section class="store-review-comment mt-5">
+                   <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <form action="{{ route('product.comment.store', $product) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                        <label for="comment">Comment here</label>
+                                        <textarea name="post" id="descriptionEditor" class="form-control"></textarea>
+                                        <button type="submit" class="btn btn-success mt-3">Comment</button>
+                                </form>
+                            </div>
+                       </div>
+                   </div>
+               </section>
+                @endauth
             </div>
         </div>
 @endsection
@@ -186,5 +202,9 @@
                     }
                 }
             });
+        </script>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+        <script>
+        CKEDITOR.replace('descriptionEditor');
         </script>
 @endpush
