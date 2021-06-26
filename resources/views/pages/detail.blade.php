@@ -164,7 +164,7 @@
                                 <form action="{{ route('product.comment.store', $product) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <label for="comment">Comment here</label>
-                                        <textarea name="post" id="descriptionEditor" class="form-control"></textarea>
+                                        <textarea name="post" id="descriptionEditor" class="form-control" required></textarea>
                                         <button type="submit" class="btn btn-success mt-3">Comment</button>
                                 </form>
                             </div>

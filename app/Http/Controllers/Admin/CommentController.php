@@ -100,7 +100,11 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-         $item = Comment::findOrFail($id);
+         $item = Comment::with([
+             'user',
+             'product',
+         ])->findOrFail($id);
+
 
         return view('pages.admin.comments.edit', compact(['item']));
     }
@@ -114,7 +118,13 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $product = Comment::findOrFail($id);
+
+        $product->update($data);
+
+        return redirect()->route('comment.index')->with('sukses','Data Berhasil Diupdate');
     }
 
     /**
@@ -125,6 +135,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Comment::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('comment.index')->with('sukses','Data Komentar Behasil Dihapus');
     }
 }

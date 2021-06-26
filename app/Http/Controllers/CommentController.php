@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommentRequest;
+
 
 use App\Product;
 use App\Comment;
@@ -12,7 +14,7 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-      public function postComment(Request $request, Product $product)
+      public function postComment(CommentRequest $request, Product $product)
     {
 
         // dd($request->all());

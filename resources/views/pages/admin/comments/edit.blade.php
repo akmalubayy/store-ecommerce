@@ -1,7 +1,7 @@
 @extends('./layouts/admin')
 
 @section('title')
-    Product Admin - StorEcommerce
+    Comment - StorEcommerce
 @endsection
 
 @section('content')
@@ -11,8 +11,8 @@
           >
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Product Admin (Full Access)</h2>
-                <p class="dashboard-subtitle">Edit Product</p>
+                <h2 class="dashboard-title">Comment (Full Access)</h2>
+                <p class="dashboard-subtitle">Edit Comment</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
@@ -28,56 +28,40 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('product.update', $item->id) }}" method="POST">
+                                <form action="{{ route('comment.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="nameProduct">
-                                                    Nama Produk
+                                                    Nama
                                                 </label>
-                                                <input type="text" name="name" class="form-control" placeholder="Masukan nama kategori produk" value="{{ $item->name }}" required>
+                                                <input type="text" name="name" class="form-control" value="{{ $item->user->name }}" required disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="productOwner">
+                                                <label for="nameProduct">
+                                                    Product Name
+                                                </label>
+                                                <input type="text" name="users_id" class="form-control" value="{{ $item->product->name }}" required disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="nameProduct">
                                                     Product Owner
                                                 </label>
-                                                <select name="users_id" id="productOwner" class="form-control">
-                                                    <option value="" disabled>-- Pilih Owner --</option>
-                                                    @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="productCategory">
-                                                    Product Category
-                                                </label>
-                                                <select name="categories_id" id="productCategory" class="form-control">
-                                                    <option value="" disabled>-- Pilih Category --</option>
-                                                   @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                                                   @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="priceProduct">Price</label>
-                                                <input type="number" name="price" id="" class="form-control" placeholder="Masukan Harga" value="{{ $item->price }}" required>
+                                                <input type="text" name="products_id" class="form-control" value="{{ $item->product->user->name }}" required disabled>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                    <label for="description">Description</label>
+                                                    <label for="description">Comment Post</label>
                                                     <textarea
-                                                    type="text" class="form-control" id="descriptionEditor" name="description" cols="30" rows="4" placeholder="Type here...">
-                                                       {!! $item->description !!}
+                                                    type="text" class="form-control" id="descriptionEditor" name="post" cols="30" rows="4" placeholder="Type here...">
+                                                       {!! $item->post !!}
                                                     </textarea>
                                             </div>
                                         </div>

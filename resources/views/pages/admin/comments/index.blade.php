@@ -31,8 +31,6 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">
-                               <span class="ti ti-plus"></span> Tambah Komentar</a>
                                <div class="table-responsive">
                                    <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                        <thead>
