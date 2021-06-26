@@ -110,6 +110,7 @@
                         @endif"
                         class="rounded-circle mr-2 profile-picture"
                         alt="images-profile"
+                        style="object-fit: cover;"
                       />
                       Hi, {{ Auth::user()->name }}
                     </a>

@@ -118,7 +118,11 @@
                       data-toggle="dropdown"
                     >
                       <img
-                        src="/images/profile-image.png"
+                        src="@if (Auth::user()->photo_url != NULL)
+                            {{ Storage::url(Auth::user()->photo_url) }}
+                        @else
+                            https://ui-avatars.com/api/?name={{Auth::user()->name}}
+                        @endif"
                         class="rounded-circle mr-2 profile-picture"
                         alt="images-profile"
                       />
@@ -126,7 +130,12 @@
                       {{-- Hi, Howdy --}}
                     </a>
                     <div class="dropdown-menu">
-                      <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
+                      <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                   </li>
                 </ul>

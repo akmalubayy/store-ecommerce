@@ -18,11 +18,36 @@
               <div class="dashboard-content">
                 <div class="row mt-3">
                   <div class="col-12">
+                      @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                     <form action="{{ route('dashboard-settings-redirect' ,'dashboard-account-settings') }}" method="POST" enctype="multipart/form-data" id="locations">
                     @csrf
 
                       <div class="card">
                         <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-12 col-md-4">
+                                    <img
+                                        {{-- src="{{ Storage::url($user->photo_url ?? '../images/img-no-available.jpg') }}" --}}
+                                        src="@if (Auth::user()->photo_url != NULL)
+                                                {{ Storage::url(Auth::user()->photo_url) }}
+                                            @else
+                                                /images/img-no-available.jpg
+                                            @endif"
+                                        alt=""
+                                        class="w-50  mb-3"
+                                        style="border-radius: 10px;"
+                                    />
+                                    <input type="file" name="photo_url" id="" class="form-control">
+                                </div>
+                            </div>
                           <div class="row mb-2">
                             <div class="col-md-6">
                               <div class="form-group">

@@ -123,14 +123,16 @@ class UserController extends Controller
             'name' => 'required|string|max:50',
             'email' => "required|email|unique:users,email,$id",
             'roles' => 'nullable|string|in:ADMIN,USER',
+            'photo_url' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ));
 
         $data = $request->all();
 
         $user = User::findOrFail($id);
 
-        $user->name =$request->name;
-        $user->email =$request->email;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->photo_url = $request->photo_url;
 
         if($request->password) {
             $data['password'] = bcrypt($request->password);

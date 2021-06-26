@@ -16,7 +16,7 @@
               </div>
               <div class="dashboard-content">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         @if($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -32,7 +32,18 @@
                                     @method('PUT')
                                     @csrf
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-12 col-md-4">
+                                            <img
+                                                src="{{ Storage::url($data->photo_url ?? '../images/img-no-available.jpg') }}"
+                                                alt=""
+                                                class="w-50 mb-3"
+                                                style="border-radius: 10px;"
+                                            />
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="nameUser">
                                                     Nama User
@@ -40,7 +51,7 @@
                                                 <input type="text" name="name" class="form-control" placeholder="Masukan Nama Lengkap" value="{{ $data->name }}" required>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="emailUser">
                                                     Email User
@@ -51,7 +62,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                         <div class="col-md-12">
+                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="passwordUser">
                                                     Password User
@@ -60,7 +71,7 @@
                                                 <small class="text-muted">*Kosongkan Jika Tidak Ingin Mengganti Password</small>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="roles">
                                                     Roles
@@ -72,7 +83,6 @@
                                                 </select>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="row">
                                         <div class="col text-right">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\User;
 use App\Category;
@@ -94,9 +95,26 @@ class DashboardSettingController extends Controller
      */
     public function update(Request $request, $redirect)
     {
+        $this->validate($request, array(
+            'photo_url' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ));
+
         $data = $request->all();
 
         $item = Auth::user();
+
+        // $data['photo_url'] = $request->file('photo_url')->store('assets/user','public');
+
+        if($request->hasFile('photo_url'))
+        {
+                //upload it
+                $data['photo_url'] = $request->file('photo_url')->store('assets/user','public');
+
+                //delete old image
+                Storage::delete(Auth::user()->photo_url);
+
+                $data['photo_url'] = $request->file('photo_url')->store('assets/user','public');
+        }
 
         $item->update($data);
 
