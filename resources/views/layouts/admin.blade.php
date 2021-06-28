@@ -109,7 +109,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Desktop Menu -->
                 <ul class="navbar-nav d-none d-lg-flex ml-auto">
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown profile-image">
                     <a
                       href="#"
                       class="nav-link"

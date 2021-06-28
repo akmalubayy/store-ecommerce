@@ -11318,7 +11318,13 @@ footer p {
 }
 
 .navbar-store .profile-picture {
-    max-height: 45px;
+    max-height: 80px;
+     max-height: 80px;
+    width: 50px;
+    height: 50px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: relative;
 }
 
 .navbar-store .card-badge {
@@ -11676,12 +11682,21 @@ footer p {
 }
 
 .page-margin {
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .page-dashboard #page-content-wrapper {
     background: #f5f5fb;
     min-width: 100vw;
+}
+
+.page-dashboard .profile-image img {
+    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: relative;
 }
 
 .page-dashboard #sidebar-wrapper {

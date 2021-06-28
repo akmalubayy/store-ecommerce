@@ -45,7 +45,7 @@
           @auth
         <!-- Desktop Menu -->
             <ul class="navbar-nav d-none d-lg-flex">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown profile-image">
                     <a
                         href="#"
                         class="nav-link"
@@ -61,7 +61,6 @@
                             @endif"
                             class="rounded-circle mr-2 profile-picture"
                             alt="images-profile"
-                            style="object-fit: cover;"
                         />
                             Hi, {{ Auth::user()->name }}
                     </a>

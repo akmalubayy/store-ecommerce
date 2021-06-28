@@ -73,7 +73,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
           <nav
-            class="navbar navbar-expand-lg navbar-light navbar-store fixed-top"
+            class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
             data-aos="fade-down"
           >
             <div class="container-fluid">
@@ -94,7 +94,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Desktop Menu -->
                 <ul class="navbar-nav d-none d-lg-flex ml-auto">
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown profile-image">
                     <a
                       href="#"
                       class="nav-link"
@@ -110,7 +110,6 @@
                         @endif"
                         class="rounded-circle mr-2 profile-picture"
                         alt="images-profile"
-                        style="object-fit: cover;"
                       />
                       Hi, {{ Auth::user()->name }}
                     </a>
