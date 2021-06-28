@@ -34,7 +34,11 @@
                                     <div class="row">
                                         <div class="col-12 col-md-4">
                                             <img
-                                                src="{{ Storage::url($data->photo_url ?? '../images/img-no-available.jpg') }}"
+                                                src="@if ($data->photo_url != NULL)
+                                                    {{ Storage::url($data->photo_url) }}
+                                                @else
+                                                /images/img-no-available.jpg
+                                                @endif"
                                                 alt=""
                                                 class="w-50 mb-3"
                                                 style="border-radius: 10px;"
