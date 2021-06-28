@@ -26,12 +26,14 @@
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
           <div class="sidebar-heading text-center">
-            <img
-              src="/images/admin.png"
-              alt="dahboard-logo"
-              class="my-4"
-              style="max-width:90px;"
-            />
+              <a href="{{ route('admin-dashboard') }}">
+                  <img
+                    src="/images/admin.png"
+                    alt="dahboard-logo"
+                    class="my-4"
+                    style="max-width:90px;"
+                  />
+              </a>
           </div>
           <div class="list-group list-group-flush">
             <a
