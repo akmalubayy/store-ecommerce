@@ -8,6 +8,8 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
+
 
     <title>@yield('title')</title>
 
@@ -132,6 +134,12 @@
                       {{-- Hi, Howdy --}}
                     </a>
                     <div class="dropdown-menu">
+                        <a href="{{ route('dashboard') }}" class="dropdown-item">
+                           Store Dashboard
+                        </a>
+                        <a href="{{ route('home') }}" class="dropdown-item">
+                            Go Shop!
+                        </a>
                       <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>

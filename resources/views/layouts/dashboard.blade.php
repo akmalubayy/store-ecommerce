@@ -8,6 +8,8 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
+
 
     <title>@yield('title')</title>
 
@@ -24,11 +26,13 @@
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
           <div class="sidebar-heading text-center">
-            <img
-              src="/images/dashboard-logo.svg"
-              alt="dahboard-logo"
-              class="my-4"
-            />
+              <a href="{{ route('dashboard') }}">
+                  <img
+                    src="/images/dashboard-logo.svg"
+                    alt="dahboard-logo"
+                    class="my-4"
+                  />
+              </a>
           </div>
           <div class="list-group list-group-flush">
             <a
@@ -114,9 +118,11 @@
                       Hi, {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu">
-                      <a href="{{ route('dashboard') }}" class="dropdown-item"
-                        >Dashboard</a
-                      >
+                        @if (Auth::user()->roles == 'ADMIN')
+                        <a href="{{ route('admin-dashboard') }}" class="dropdown-item">
+                           Admin Dashboard
+                        </a>
+                        @endif
                       <a href="{{ route('home') }}" class="dropdown-item"
                         >Go Shop!</a
                       >

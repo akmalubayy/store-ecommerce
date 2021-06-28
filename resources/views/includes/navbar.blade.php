@@ -66,13 +66,16 @@
                     </a>
                     <div class="dropdown-menu">
                         @if (Auth::user()->roles == 'ADMIN')
-                        <a href="{{ route('admin-dashboard') }}" class="dropdown-item"
-                            >Dashboard</a
-                        >
+                        <a href="{{ route('admin-dashboard') }}" class="dropdown-item">
+                            Admin Dashboard
+                        </a>
+                        <a href="{{ route('dashboard') }}" class="dropdown-item">
+                           Store Dashboard
+                        </a>
                         @else
-                            <a href="{{ route('dashboard') }}" class="dropdown-item"
-                            >Dashboard</a
-                        >
+                            <a href="{{ route('dashboard') }}" class="dropdown-item">
+                                Dashboard
+                            </a>
                         @endif
                         @if (Auth::user()->roles == 'USER')
                         <a
