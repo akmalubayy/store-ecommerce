@@ -1,7 +1,7 @@
 @extends('./layouts/admin')
 
 @section('title')
-    Category Admin - StorEcommerce
+    Users Admin - StorEcommerce
 @endsection
 
 @section('content')

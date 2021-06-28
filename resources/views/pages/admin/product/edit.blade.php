@@ -46,9 +46,9 @@
                                                     Product Owner
                                                 </label>
                                                 <select name="users_id" id="productOwner" class="form-control">
-                                                    <option value="" disabled>-- Pilih Owner --</option>
+                                                    <option value="" disabled selected>-- Pilih Owner --</option>
                                                     @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -59,9 +59,9 @@
                                                     Product Category
                                                 </label>
                                                 <select name="categories_id" id="productCategory" class="form-control">
-                                                    <option value="" disabled>-- Pilih Category --</option>
+                                                    <option value="" disabled selected>-- Pilih Category --</option>
                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                    @endforeach
                                                 </select>
                                             </div>
