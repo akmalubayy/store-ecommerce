@@ -87,6 +87,14 @@
               targets: 4,
               render: $.fn.dataTable.render.number( ',', '.', 2, 'Rp. ' )
           },
+          {
+              orderable : false,
+              targets : 2,
+          },
+          {
+              orderable : false,
+              targets : 3,
+          },
         ],
         });
     </script>
